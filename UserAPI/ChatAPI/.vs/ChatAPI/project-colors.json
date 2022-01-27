@@ -1,0 +1,41 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "6fe15436-3b72-4612-81a1-289f1e5365d7": {
+      "ProjectGuid": "6fe15436-3b72-4612-81a1-289f1e5365d7",
+      "DisplayName": "ChatAPI",
+      "ColorIndex": 0
+    },
+    "0df0e005-3e3b-47e0-998f-e26773a5fca6": {
+      "ProjectGuid": "0df0e005-3e3b-47e0-998f-e26773a5fca6",
+      "DisplayName": "ChatAPI.Repository",
+      "ColorIndex": 1
+    },
+    "312cc231-bce8-45fe-8ee8-8f8228d106b6": {
+      "ProjectGuid": "312cc231-bce8-45fe-8ee8-8f8228d106b6",
+      "DisplayName": "ChatAPI.Entities",
+      "ColorIndex": 2
+    },
+    "7c3d98f0-a8e6-477d-b133-cd0972782f1c": {
+      "ProjectGuid": "7c3d98f0-a8e6-477d-b133-cd0972782f1c",
+      "DisplayName": "ChatAPI.App",
+      "ColorIndex": 3
+    },
+    "b1ec1e59-d9d7-43ca-94e0-b1763b21de4d": {
+      "ProjectGuid": "b1ec1e59-d9d7-43ca-94e0-b1763b21de4d",
+      "DisplayName": "ChatAPI.Messaging.Send",
+      "ColorIndex": 4
+    },
+    "2177e30c-58e2-4671-85de-7bd03144055e": {
+      "ProjectGuid": "2177e30c-58e2-4671-85de-7bd03144055e",
+      "DisplayName": "ChatAPI.Messaging.Recieve",
+      "ColorIndex": 5
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Miscellaneous Files",
+      "ColorIndex": -1
+    }
+  },
+  "NextColorIndex": 6
+}
