@@ -1,0 +1,12 @@
+C:\Users\RETUR\Desktop\MicroservicesArch\UserAPI\UserAPI.Messaging.Send\bin\Debug\net5.0\UserAPI.Messaging.Send.deps.json
+C:\Users\RETUR\Desktop\MicroservicesArch\UserAPI\UserAPI.Messaging.Send\bin\Debug\net5.0\UserAPI.Messaging.Send.dll
+C:\Users\RETUR\Desktop\MicroservicesArch\UserAPI\UserAPI.Messaging.Send\bin\Debug\net5.0\ref\UserAPI.Messaging.Send.dll
+C:\Users\RETUR\Desktop\MicroservicesArch\UserAPI\UserAPI.Messaging.Send\bin\Debug\net5.0\UserAPI.Messaging.Send.pdb
+C:\Users\RETUR\Desktop\MicroservicesArch\UserAPI\UserAPI.Messaging.Send\obj\Debug\net5.0\UserAPI.Messaging.Send.csproj.AssemblyReference.cache
+C:\Users\RETUR\Desktop\MicroservicesArch\UserAPI\UserAPI.Messaging.Send\obj\Debug\net5.0\UserAPI.Messaging.Send.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\RETUR\Desktop\MicroservicesArch\UserAPI\UserAPI.Messaging.Send\obj\Debug\net5.0\UserAPI.Messaging.Send.AssemblyInfoInputs.cache
+C:\Users\RETUR\Desktop\MicroservicesArch\UserAPI\UserAPI.Messaging.Send\obj\Debug\net5.0\UserAPI.Messaging.Send.AssemblyInfo.cs
+C:\Users\RETUR\Desktop\MicroservicesArch\UserAPI\UserAPI.Messaging.Send\obj\Debug\net5.0\UserAPI.Messaging.Send.csproj.CoreCompileInputs.cache
+C:\Users\RETUR\Desktop\MicroservicesArch\UserAPI\UserAPI.Messaging.Send\obj\Debug\net5.0\UserAPI.Messaging.Send.dll
+C:\Users\RETUR\Desktop\MicroservicesArch\UserAPI\UserAPI.Messaging.Send\obj\Debug\net5.0\ref\UserAPI.Messaging.Send.dll
+C:\Users\RETUR\Desktop\MicroservicesArch\UserAPI\UserAPI.Messaging.Send\obj\Debug\net5.0\UserAPI.Messaging.Send.pdb
