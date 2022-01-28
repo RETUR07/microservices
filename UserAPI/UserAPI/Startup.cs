@@ -39,6 +39,8 @@ namespace UserAPI
 
             services.AddHostedService<ChatCreatedReciever>();
             services.AddHostedService<ChatDeletedReciever>();
+            services.AddHostedService<PostCreatedReciever>();
+            services.AddHostedService<PostDeletedReciever>();
             services.AddHostedService<UserAddedToChatReciever>();
 
             services.AddControllers();

@@ -19,7 +19,7 @@ using System.Collections.Generic;
 using System.Reflection;
 using ChatAPI.Messaging.Send.Sender;
 
-namespace SocialNetwork.Extensions
+namespace ChatAPI.Extensions
 {
     public static class ServiceExtensions
     {
