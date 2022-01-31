@@ -18,3 +18,5 @@ C:\Users\RETUR\Desktop\MicroservicesArch\PostAPI\PostAPI.Application\obj\Debug\n
 C:\Users\RETUR\Desktop\MicroservicesArch\PostAPI\PostAPI.Application\obj\Debug\net5.0\ref\PostAPI.Application.dll
 C:\Users\RETUR\Desktop\MicroservicesArch\PostAPI\PostAPI.Application\obj\Debug\net5.0\PostAPI.Application.pdb
 C:\Users\RETUR\Desktop\MicroservicesArch\PostAPI\PostAPI.Application\obj\Debug\net5.0\PostAPI.Application.genruntimeconfig.cache
+C:\Users\RETUR\Desktop\MicroservicesArch\PostAPI\PostAPI.Application\bin\Debug\net5.0\PostAPI.Messaging.Send.dll
+C:\Users\RETUR\Desktop\MicroservicesArch\PostAPI\PostAPI.Application\bin\Debug\net5.0\PostAPI.Messaging.Send.pdb

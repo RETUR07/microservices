@@ -68,7 +68,7 @@ namespace PostAPI
                         { jwtSecurityScheme, Array.Empty<string>() }
                     });
             });
-            services.ConfigureAuthorization();
+            services.ConfigureAuthorization(Configuration);
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

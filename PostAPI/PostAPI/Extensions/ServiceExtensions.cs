@@ -56,7 +56,7 @@ namespace PostAPI.Extensions
                     opts.UseSqlServer(Configuration.GetConnectionString("sqlConnection"), x => x.MigrationsAssembly("ChatAPI")));
         }
 
-        public static void ConfigureAuthorization(this IServiceCollection services)
+        public static void ConfigureAuthorization(this IServiceCollection services, IConfiguration Configuration)
         {
             services.AddAuthorization(options =>
             {
@@ -72,8 +72,8 @@ namespace PostAPI.Extensions
             {
                 //development
                 options.RequireHttpsMetadata = false;
-                options.Authority = "https://localhost:9001";//host.docker.internal
-                                                             //
+                options.Authority = Configuration.GetSection("Authority")["AuthorityURL"];//host.docker.internal
+                                                                                          //
 
                 options.TokenValidationParameters = new TokenValidationParameters
                 {

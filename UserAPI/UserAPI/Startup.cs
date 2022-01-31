@@ -82,7 +82,7 @@ namespace UserAPI
             .AddEntityFrameworkStores<RepositoryContext>()
             .AddDefaultTokenProviders();
 
-            services.ConfigureAuthorization();
+            services.ConfigureAuthorization(Configuration);
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

@@ -55,7 +55,7 @@ namespace SocialNetwork.Extensions
                     opts.UseSqlServer(Configuration.GetConnectionString("sqlConnection"), x => x.MigrationsAssembly("UserAPI")));
         }
 
-        public static void ConfigureAuthorization(this IServiceCollection services)
+        public static void ConfigureAuthorization(this IServiceCollection services, IConfiguration Configuration)
         {
             services.AddAuthorization(options =>
             {
@@ -71,8 +71,8 @@ namespace SocialNetwork.Extensions
             {
                 //development
                 options.RequireHttpsMetadata = false;
-                options.Authority = "https://localhost:9001";//host.docker.internal
-                                                             //
+                options.Authority = Configuration.GetSection("Authority")["AuthorityURL"];
+                                                                                          //
 
                 options.TokenValidationParameters = new TokenValidationParameters
                 {
