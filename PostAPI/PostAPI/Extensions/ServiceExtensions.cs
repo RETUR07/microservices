@@ -53,7 +53,7 @@ namespace PostAPI.Extensions
         public static void ConfigureDatabase(this IServiceCollection services, IConfiguration Configuration)
         {
             services.AddDbContext<RepositoryContext>(opts =>
-                    opts.UseSqlServer(Configuration.GetConnectionString("sqlConnection"), x => x.MigrationsAssembly("ChatAPI")));
+                    opts.UseSqlServer(Configuration.GetConnectionString("sqlConnection"), x => x.MigrationsAssembly("PostAPI")));
         }
 
         public static void ConfigureAuthorization(this IServiceCollection services, IConfiguration Configuration)

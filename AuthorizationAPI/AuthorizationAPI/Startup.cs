@@ -38,7 +38,6 @@ namespace AuthorizationAPI
             .AddAspNetIdentity<User>();
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
@@ -47,9 +46,8 @@ namespace AuthorizationAPI
             }
             app.UseCors(builder =>
             {
-                builder.WithOrigins("http://localhost:3000", "http://localhost:5000", "https://localhost:5001",
-                    "http://localhost:5050", "https://localhost:5051")
-                .AllowCredentials()
+                builder
+                .AllowAnyOrigin()
                 .AllowAnyMethod()
                 .AllowAnyHeader();
             });

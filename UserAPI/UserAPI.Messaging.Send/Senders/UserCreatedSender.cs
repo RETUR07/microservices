@@ -12,13 +12,17 @@ namespace UserAPI.Messaging.Send.Sender
     {
         private readonly string _hostname;
         private readonly string _password;
-        private readonly string _queueName;
+        private readonly string _queueName1;
+        private readonly string _queueName2;
+        private readonly string _exchangeName;
         private readonly string _username;
         private IConnection _connection;
 
         public UserCreatedSender(IOptions<SenderRabbitMqConfiguration> rabbitMqOptions)
         {
-            _queueName = rabbitMqOptions.Value.QueueName + "UserCreated";
+            _queueName1 = "Chat" + rabbitMqOptions.Value.QueueName + "UserCreated";
+            _queueName2 = "Post" + rabbitMqOptions.Value.QueueName + "UserCreated";
+            _exchangeName = "userCreated-exchange";
             _hostname = rabbitMqOptions.Value.Hostname;
             _username = rabbitMqOptions.Value.UserName;
             _password = rabbitMqOptions.Value.Password;
@@ -32,12 +36,18 @@ namespace UserAPI.Messaging.Send.Sender
             {
                 using (var channel = _connection.CreateModel())
                 {
-                    channel.QueueDeclare(queue: _queueName, durable: false, exclusive: false, autoDelete: false, arguments: null);
+                    channel.ExchangeDeclare(_exchangeName, ExchangeType.Fanout, true);
+
+                    channel.QueueDeclare(queue: _queueName1, durable: false, exclusive: false, autoDelete: false, arguments: null);
+                    channel.QueueDeclare(queue: _queueName2, durable: false, exclusive: false, autoDelete: false, arguments: null);
+
+                    channel.QueueBind(_queueName1, _exchangeName, "");
+                    channel.QueueBind(_queueName2, _exchangeName, "");
 
                     var json = JsonConvert.SerializeObject(dto);
                     var body = Encoding.UTF8.GetBytes(json);
 
-                    channel.BasicPublish(exchange: "", routingKey: _queueName, basicProperties: null, body: body);
+                    channel.BasicPublish(exchange: _exchangeName, routingKey: "", basicProperties: null, body: body);
                 }
             }
         }

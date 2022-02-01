@@ -1,0 +1,19 @@
+version: "3.9"
+
+services:
+  authorization_api:
+    ports:
+      - "30901:443"
+    image: retur/authorization_api
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
+      - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
+    environment:
+      - ASPNETCORE_URLS=https://+:443
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings:sqlConnection=Data Source=host.docker.internal\SQLExpress, 1433; database=SocialNetworkUserDb; User ID=sa;Password=root;MultipleActiveResultSets=true;
+    restart: on-failure
+
