@@ -77,6 +77,7 @@ namespace SocialNetwork.Extensions
                 options.TokenValidationParameters = new TokenValidationParameters
                 {
                     ValidateAudience = false,
+                    ValidateIssuer = false,
                 };
             }
             );

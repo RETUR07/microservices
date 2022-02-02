@@ -5,7 +5,7 @@ metadata:
   labels:
     app: user-api
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: user-api
@@ -19,10 +19,15 @@ spec:
         image: retur/user_api:latest
         ports:
         - containerPort: 80
-        - containerPort: 443
         env:
         - name: ConnectionStrings__sqlConnection
           value: "Data Source=host.docker.internal\\SQLExpress, 1433; database=SocialNetworkUserDb; User ID=sa;Password=root;MultipleActiveResultSets=true;"
+        - name: Authority__AuthorityURL
+          value: "http://host.docker.internal:30901"
+        - name: SenderRabbitMq__Hostname
+          value: "host.docker.internal"
+        - name: RecieverRabbitMq__Hostname
+          value: "host.docker.internal"
 
 ---
 apiVersion: v1
@@ -35,12 +40,6 @@ spec:
     app: user-api
   ports:
     - protocol: TCP
-      name: "81"
       port: 81
       targetPort: 80
       nodePort: 30081
-    - protocol: TCP
-      name: "444"
-      port: 444
-      targetPort: 443
-      nodePort: 30444

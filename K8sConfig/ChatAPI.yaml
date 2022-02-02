@@ -19,10 +19,15 @@ spec:
         image: retur/chat_api:latest
         ports:
         - containerPort: 80
-        - containerPort: 443
         env:
         - name: ConnectionStrings__sqlConnection
           value: "Data Source=host.docker.internal\\SQLExpress, 1433; database=SocialNetworkChatDb; User ID=sa;Password=root;MultipleActiveResultSets=true;"
+        - name: Authority__AuthorityURL
+          value: "http://host.docker.internal:30901"
+        - name: SenderRabbitMq__Hostname
+          value: "host.docker.internal"
+        - name: RecieverRabbitMq__Hostname
+          value: "host.docker.internal"
 
 ---
 apiVersion: v1
@@ -39,8 +44,3 @@ spec:
       port: 82
       targetPort: 80
       nodePort: 30082
-    - protocol: TCP
-      name: "445"
-      port: 445
-      targetPort: 445
-      nodePort: 30445

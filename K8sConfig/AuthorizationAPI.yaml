@@ -5,7 +5,7 @@ metadata:
   labels:
     app: authorization-api
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: authorization-api
@@ -18,7 +18,7 @@ spec:
       - name: authorization-api
         image: retur/authorization_api:latest
         ports:
-        - containerPort: 443
+        - containerPort: 80
         env:
         - name: ConnectionStrings__sqlConnection
           value: "Data Source=host.docker.internal\\SQLExpress, 1433; database=SocialNetworkUserDb; User ID=sa;Password=root;MultipleActiveResultSets=true;"
@@ -34,7 +34,6 @@ spec:
     app: authorization-api
   ports:
     - protocol: TCP
-      name: "443"
-      port: 9001
-      targetPort: 443
+      port: 30901
+      targetPort: 80
       nodePort: 30901
