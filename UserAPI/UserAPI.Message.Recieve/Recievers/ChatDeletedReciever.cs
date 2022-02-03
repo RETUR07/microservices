@@ -27,6 +27,8 @@ namespace UserAPI.Messaging.Recieve.Recievers
         private readonly string _queueName;
         private readonly string _username;
         private readonly string _password;
+        private readonly int _port;
+
 
         public ChatDeletedReciever(IOptions<RecieverRabbitMqConfiguration> rabbitMqOptions
             , IServiceProvider serviceProvider)
@@ -36,6 +38,7 @@ namespace UserAPI.Messaging.Recieve.Recievers
             _queueName = rabbitMqOptions.Value.QueueName + "ChatDeleted";
             _username = rabbitMqOptions.Value.UserName;
             _password = rabbitMqOptions.Value.Password;
+            _port = rabbitMqOptions.Value.Port;
             InitializeRabbitMqListener();
         }
 
@@ -43,6 +46,7 @@ namespace UserAPI.Messaging.Recieve.Recievers
         {
             var factory = new ConnectionFactory
             {
+                Port = _port,
                 HostName = _hostname,
                 UserName = _username,
                 Password = _password

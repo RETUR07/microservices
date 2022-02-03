@@ -14,6 +14,7 @@ namespace PostAPI.Messaging.Send.Sender
         private readonly string _password;
         private readonly string _queueName;
         private readonly string _username;
+        private readonly int _port;
         private IConnection _connection;
 
         public PostCreatedSender(IOptions<SenderRabbitMqConfiguration> rabbitMqOptions)
@@ -22,6 +23,7 @@ namespace PostAPI.Messaging.Send.Sender
             _hostname = rabbitMqOptions.Value.Hostname;
             _username = rabbitMqOptions.Value.UserName;
             _password = rabbitMqOptions.Value.Password;
+            _port = rabbitMqOptions.Value.Port;
 
             CreateConnection();
         }
@@ -48,6 +50,7 @@ namespace PostAPI.Messaging.Send.Sender
             {
                 var factory = new ConnectionFactory
                 {
+                    Port = _port,
                     HostName = _hostname,
                     UserName = _username,
                     Password = _password
