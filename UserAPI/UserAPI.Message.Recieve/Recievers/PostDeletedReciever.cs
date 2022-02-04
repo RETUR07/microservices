@@ -53,7 +53,7 @@ namespace UserAPI.Messaging.Recieve.Recievers
 
             _connection = factory.CreateConnection();
             _channel = _connection.CreateModel();
-            _channel.QueueDeclare(queue: _queueName, durable: false, exclusive: false, autoDelete: false, arguments: null);
+            _channel.QueueDeclare(queue: _queueName, durable: true, exclusive: false, autoDelete: false, arguments: new Dictionary<string, object>(){ { "x-queue-type", "quorum" } });
         }
 
         protected override Task ExecuteAsync(CancellationToken stoppingToken)

@@ -35,11 +35,10 @@ kind: Service
 metadata:
   name: user-api-service
 spec:
-  type: NodePort
+  type: ClusterIP
   selector:
     app: user-api
   ports:
     - protocol: TCP
       port: 81
       targetPort: 80
-      nodePort: 30081

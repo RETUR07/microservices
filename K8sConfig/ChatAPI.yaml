@@ -35,7 +35,7 @@ kind: Service
 metadata:
   name: chat-api-service
 spec:
-  type: NodePort
+  type: ClusterIP
   selector:
     app: chat-api
   ports:
@@ -43,4 +43,3 @@ spec:
       name: "82"
       port: 82
       targetPort: 80
-      nodePort: 30082

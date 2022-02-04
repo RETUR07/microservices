@@ -5,6 +5,7 @@ using Newtonsoft.Json;
 using RabbitMQ.Client;
 using System;
 using System.Text;
+using System.Collections.Generic;
 
 namespace UserAPI.Messaging.Send.Sender
 {
@@ -40,8 +41,8 @@ namespace UserAPI.Messaging.Send.Sender
                 {
                     channel.ExchangeDeclare(_exchangeName, ExchangeType.Fanout, true);
 
-                    channel.QueueDeclare(queue: _queueName1, durable: false, exclusive: false, autoDelete: false, arguments: null);
-                    channel.QueueDeclare(queue: _queueName2, durable: false, exclusive: false, autoDelete: false, arguments: null);
+                    channel.QueueDeclare(queue: _queueName1, durable: true, exclusive: false, autoDelete: false, arguments: new Dictionary<string, object>() { { "x-queue-type", "quorum" } });
+                    channel.QueueDeclare(queue: _queueName2, durable: true, exclusive: false, autoDelete: false, arguments: new Dictionary<string, object>() { { "x-queue-type", "quorum" } });
 
                     channel.QueueBind(_queueName1, _exchangeName, "");
                     channel.QueueBind(_queueName2, _exchangeName, "");

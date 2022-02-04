@@ -5,6 +5,7 @@ using Newtonsoft.Json;
 using RabbitMQ.Client;
 using System;
 using System.Text;
+using System.Collections.Generic;
 
 namespace PostAPI.Messaging.Send.Sender
 {
@@ -34,7 +35,7 @@ namespace PostAPI.Messaging.Send.Sender
             {
                 using (var channel = _connection.CreateModel())
                 {
-                    channel.QueueDeclare(queue: _queueName, durable: false, exclusive: false, autoDelete: false, arguments: null);
+                    channel.QueueDeclare(queue: _queueName, durable: true, exclusive: false, autoDelete: false, arguments: new Dictionary<string, object>() { { "x-queue-type", "quorum" } });
 
                     var json = JsonConvert.SerializeObject(dto);
                     var body = Encoding.UTF8.GetBytes(json);

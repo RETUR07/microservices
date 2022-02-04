@@ -4,6 +4,7 @@ using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 using RabbitMQ.Client;
 using System;
+using System.Collections.Generic;
 using System.Text;
 
 namespace ChatAPI.Messaging.Send.Sender
@@ -34,7 +35,7 @@ namespace ChatAPI.Messaging.Send.Sender
             {
                 using (var channel = _connection.CreateModel())
                 {
-                    channel.QueueDeclare(queue: _queueName, durable: false, exclusive: false, autoDelete: false, arguments: null);
+                    channel.QueueDeclare(queue: _queueName, durable: true, exclusive: false, autoDelete: false, arguments: new Dictionary<string, object>() { { "x-queue-type", "quorum" } });
 
                     var json = JsonConvert.SerializeObject(chatForResponseDTO);
                     var body = Encoding.UTF8.GetBytes(json);

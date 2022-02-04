@@ -34,7 +34,7 @@ kind: Service
 metadata:
   name: post-api-service
 spec:
-  type: NodePort
+  type: ClusterIP
   selector:
     app: post-api
   ports:
@@ -42,4 +42,3 @@ spec:
       name: "80"
       port: 80
       targetPort: 80
-      nodePort: 30080
