@@ -5,7 +5,6 @@ metadata:
 spec:
   rules:
   - host: localhost
-    port: 9999
     http:
       paths:
       - path: /api/user
@@ -22,7 +21,21 @@ spec:
             name: post-api-service
             port:
               number: 80
+      - path: /hubs/posts
+        pathType: Prefix
+        backend:
+          service:
+            name: post-api-service
+            port:
+              number: 80
       - path: /api/chat
+        pathType: Prefix
+        backend:
+          service:
+            name: chat-api-service
+            port:
+              number: 82
+      - path: /hubs/chats
         pathType: Prefix
         backend:
           service:

@@ -7,6 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using PostAPI.Extensions;
+using PostAPI.Hubs;
 using PostAPI.Messaging.Recieve.Config;
 using PostAPI.Messaging.Recieve.Recievers;
 using PostAPI.Messaging.Send.Config;
@@ -38,7 +39,7 @@ namespace PostAPI
             services.AddHostedService<UserDeletedReciever>();
 
             services.AddControllers();
-            services.AddSignalR();
+            services.AddSignalR().AddStackExchangeRedis(Configuration.GetSection("SignalRCache")["Connection"]);
 
             services.ConfigureAutoMapper();
             services.ConfigureServices(Configuration);
@@ -107,6 +108,7 @@ namespace PostAPI
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers().RequireAuthorization("ApiScope");
+                endpoints.MapHub<RateHub>("/hubs/posts").RequireAuthorization("ApiScope");
             });
         }
     }

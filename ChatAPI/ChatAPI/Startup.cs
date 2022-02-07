@@ -39,7 +39,7 @@ namespace ChatAPI
             services.AddHostedService<UserDeletedReciever>();
 
             services.AddControllers();
-            services.AddSignalR();
+            services.AddSignalR().AddStackExchangeRedis(Configuration.GetSection("SignalRCache")["Connection"]);
 
             services.ConfigureAutoMapper();
             services.ConfigureServices(Configuration);
